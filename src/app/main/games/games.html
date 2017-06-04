@@ -1,25 +1,22 @@
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
     <ms-widget ng-repeat="game in vm.games" flippable="true" layout="column" flex="100" flex-gt-xs="25" flex-gt-md="20" class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
-            <div class="ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
-                <!--<div class="light-blue-fg font-size-72 line-height-72 ng-binding">25%</div>
+            <a href="">
+                <div class="ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
+                    <!--<div class="light-blue-fg font-size-72 line-height-72 ng-binding">25%</div>
                 <div class="h3 secondary-text font-weight-500 ng-binding">CONVERSION RATE</div>-->
-                <div>
-                    <img ng-src="https://static-cdn.jtvnw.net/ttv-boxart/{{game.game.name}}-272x380.jpg"/>  
-                                  
+                    <div>
+                        <img ng-src="https://static-cdn.jtvnw.net/ttv-boxart/{{game.game.name}}-272x380.jpg" />
+
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="p-15 grey-50-bg border-top ng-scope layout-align-start-center layout-row" layout="row" layout-align="start center">
                 <span class="secondary-text text-truncate ng-binding">Viewers:</span>
                 <span class="ml-8 ng-binding">{{game.viewers}}</span>
             </div>
         </ms-widget-front>
-        <ms-widget-back class="p-16 white-bg ms-widget-back ng-scope">
-            <div class="flip-to-front ng-scope"><button class="md-icon-button md-button md-default-theme md-ink-ripple" type="button"  ng-click="flipWidget()"
-                    aria-label="Flip widget"><md-icon md-font-icon="icon-close" class="s16 ng-scope md-default-theme md-font material-icons icon-close" role="img" aria-hidden="true"></md-icon></button>
-            </div>
-            <div class="ng-binding ng-scope">You can show some detailed information about this widget in here.</div>
-        </ms-widget-back>
+
     </ms-widget>
 
 </div>
