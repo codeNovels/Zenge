@@ -24,10 +24,21 @@
                     </div>
                 </div>
             </a>
-            <div class="p-15 grey-50-bg border-top ng-scope layout-align-start-center layout-row" layout="row" layout-align="start center">
+            <div class="p-5 grey-50-bg border-top ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
+                layout="row" flex="100" layout-align="start center" style="padding-bottom: 0px;">
+                <span class="layout-align-start text-truncate ng-binding">
+                    <a style="color:rgba(0,0,0,0.54);">{{game.game.name}}<a>
+                    </span>
+            </div>
+            <div class="p-5 grey-50-bg ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
+                layout="row" flex="100" layout-align="start center" style="padding-top: 0px;">
+                <span class="secondary-text text-truncate ng-binding" style="font-size:10px">Viewers: {{game.viewers}}</span>
+                </span>
+            </div>
+            <!--<div class="p-15 grey-50-bg border-top ng-scope layout-align-start-center layout-row" layout="row" layout-align="start center">
                 <span class="secondary-text text-truncate ng-binding">Viewers:</span>
                 <span class="ml-8 ng-binding">{{game.viewers}}</span>
-            </div>
+            </div>-->
         </ms-widget-front>
 
     </ms-widget>

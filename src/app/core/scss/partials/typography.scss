@@ -54,10 +54,12 @@ h6, .h6 {
 
 // Links
 a {
-    text-decoration: none;
-
+    text-decoration: none !important;
     &:hover, &:active {
-        text-decoration: underline;
+        color: rgb(3, 155, 229) !important;
+        cursor: pointer; 
+        cursor: hand;
+        //text-decoration: underline;
     }
 }
 
