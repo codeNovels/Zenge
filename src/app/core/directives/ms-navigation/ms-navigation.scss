@@ -40,9 +40,10 @@
             display: block;
             position: relative;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.70);
+            color: rgba(255, 255, 255, 0.70) !important;
 
             &:hover {
+                color: white !important;
                 background: rgba(0, 0, 0, 0.1);
             }
 
@@ -57,7 +58,7 @@
                 justify-content: flex-start;
                 align-items: center;
                 padding-right: 16px;
-                color: rgba(255, 255, 255, 0.70);
+                color: rgba(255, 255, 255, 0.70) !important;
                 text-decoration: none;
                 white-space: nowrap;
                 overflow: hidden;
@@ -107,7 +108,7 @@
                 }
 
                 &.active {
-                    color: #FFFFFF;
+                    color: #FFFFFF !important;
 
                     .icon {
                         color: #FFFFFF;
