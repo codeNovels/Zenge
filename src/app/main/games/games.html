@@ -1,3 +1,16 @@
+<style>
+    @media screen and (min-width: 1280px) {
+        .layout-row>.flex-gt-md-20 {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 1 100%;
+            flex: 1 1 100%;
+            max-width: 14%;
+            max-height: 100%;
+            box-sizing: border-box;
+        }
+    }
+</style>
+
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
     <ms-widget ng-repeat="game in vm.games" flippable="true" layout="column" flex="100" flex-gt-xs="25" flex-gt-md="20" class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
