@@ -1,3 +1,102 @@
-<h1>
-    {{vm.helloText}}
-</h1>
+<div id="dashboard-analytics" class="ng-scope">
+    <div id="widgets">
+        <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
+            <ms-widget flippable="false" layout="row" flex="100" class="ms-widget ng-isolate-scope layout-row flex-100">
+                <ms-widget-front class="white-bg ms-widget-front ng-scope">
+                    <div class="p-24 border-bottom ng-scope layout-align-space-between-center layout-row" layout="row" layout-align="space-between center">
+                        <div class="h3 ng-binding">OVERWATCH PATCH NOTES - MAY 23, 2017</div>
+                        <div class="text-boxed green-600-bg white-fg ng-binding">06/01/2017</div>
+                    </div>
+                    <div class="pb-32 border-bottom ng-scope layout-align-start-center layout-row" layout="row" layout-align="space-between center">
+                        <div style="margin:2em">
+
+                            {{vm.helloText}} PATCH2 HIGHLIGHTS: New Seasonal Event: Overwatch Anniversary We’re raising our glasses to toast the 30 million
+                            heroes who have answered the call to join us in Overwatch! From now until June 12, players can
+                            collect more than 100 Anniversary-themed rewards, and play three new Arena maps in the Arcade—all
+                            in celebration of our first year fighting for the future together. Put on your finest skins and
+                            join us for the festivities! For more information, click here. New Standard Loot Box Items In
+                            addition to the new items in the Overwatch Anniversary event, we’re also adding new goodies to
+                            our standard loot boxes. Sombra, Orisa, and Tracer are all getting brand new emotes, and Reaper
+                            picks up several new unlocks based on the infamous shrug from the recent Uprising comic. GENERAL
+                            Custom Games and Game Browser Added new rules sets for 3v3 and 1v1 Elimination modes on the Arena
+                            maps Added options for Hero Lockout, Limited Hero Pool, Tiebreakers, and Hero Reveal for Elimination
+                            mode Players can now disable secondary fire and secondary weapons in Custom Games You can now
+                            disable one Symmetra ultimate while leaving the other active HERO UPDATES General Recoil Recovery
+                            Aim Compensation can now be disabled for Ana, McCree, and Widowmaker. The option can be found
+                            under the “Control” tab in the “Options” menu. Simply select the appropriate hero under the dropdown
+                            menu and look for the “Hero” section Developer Comments: By default, weapon recoil recovery is
+                            overruled by downward crosshair movement. This means that downward movement during the weapon’s
+                            recoil recovery phase will override the weapon’s natural recoil recovery. This option allows
+                            you to remove this functionality, meaning a weapon’s natural recoil recovery movement acts independently
+                            from downward crosshair movement. In practice, this will make your crosshair move faster if you
+                            aim downward during the recoil recovery window. Genji Removed the attack delay from Genji’s wall
+                            climbing ability, allowing him to engage with enemies immediately after he finishes climbing
+                            Developer Comments: This is a quality of life change to make wall climbing feel better. Hanzo
+                            Removed the attack cooldown from Hanzo’s wall climbing ability, allowing him to engage with enemies
+                            immediately after he finishes climbing Storm Bow Increased charge speed by 10% Charged arrows
+                            now maintain their charge after climbing a wall, provided the button is continuously held Developer
+                            Comments: Decreasing Hanzo’s draw time gives him more overall DPS, while also letting him fully
+                            charge an arrow and more quickly return to full movement speed when needed. And, like the change
+                            to Genji’s wall climbing, this is a quality of life change that will make climbing feel better.
+                            Orisa Fusion Driver Damage reduced by 9% Protective Barrier Cooldown reduced from 12 seconds
+                            to 8 seconds Developer Comments: To help Orisa maintain the front line for her team, we’re reducing
+                            the cooldown of her Protective Barrier. This change also helps her reposition the barrier more
+                            easily when needed. To compensate for this new defensive strength, we're reducing her Fusion
+                            Driver's damage, as it felt too high. Reaper Wraith Form Ammo is now entirely refilled when Wraith
+                            Form is used Developer Comments: Wraith Form is typically used as an escape ability after firing.
+                            This change gives Reaper a fighting chance if an enemy chases him down as he uses it. Reinhardt
+                            Earthshatter Effective height has been lowered from 3 meters to 2 meters The height threshold
+                            of objects that Earthshatter can "climb" has been lowered from 3 meters to 2 meters, making Earthshatter
+                            less likely to climb tall objects as it moves along the ground. Developer Comments: Earthshatter
+                            tended to climb unexpectedly high, frequently hitting targets that were significantly above the
+                            ground. These changes help the ability stay more grounded. Soldier: 76 Heavy Pulse Rifle Bullet
+                            damage decreased from 20 to 19 Developer Comments: Soldier: 76 is in a much better place lately,
+                            but his damage output was making him a must pick, compared to similar roles. USER INTERFACE UPDATES
+                            Your final blows are now highlighted by a white background in the Kill Feed Added new Kill Feed
+                            icons for environmental kills and a number of abilities Heroes resurrected by Mercy are now are
+                            now highlighted and color-coded in the Kill Feed Certain types of assists, like McCree’s Flashbang
+                            or Zenyatta’s Orb of Discord, now show up in the Kill Feed New Controller option: Force Keyboard/Mouse
+                            User Interface Developer Comments: When PC players switch from using the Keyboard/Mouse to a
+                            game controller, the game’s user interface is dynamically updated to the console/controller version.
+                            Additionally, the button layout on many heroes (like Hanzo, Zenyatta, and Mercy) is different
+                            on console. In the past, when a player chose to play using a controller and a mouse, the UI would
+                            constantly switch, depending on which device was sending information to the game. This new option
+                            allows players to set a default user interface if they choose to use a controller along with
+                            a keyboard/mouse. BUG FIXES General Fixed an issue that prevented voice lines from being heard
+                            during the Play of the Game Fixed an issue causing shields to display the wrong team color during
+                            the Play of the Game Fixed a bug that caused high resolution screenshot captures to have visual
+                            issues Arcade Fixed a bug causing the introduction before 1v1 Mystery Duels to be interrupted
+                            Fixed an issue causing parties to be split between teams when joining a Custom Game as a group
+                            Fixed an audio bug in Elimination games that could cause the end of round music to end abruptly
+                            Fixed a bug in Custom games that caused parties to be evenly split between teams when they joined
+                            as a group A.I. Fixed a bug that allowed bots to become stuck around the well on Ilios Custom
+                            Game Browser A scroll bar has been added to the custom games settings window so players can see
+                            all changes if they extend below the screen Disabling Primary Fire will no longer disable secondary
+                            weapons for Mercy, D.Va, and Torbjörn Fixed a bug that prevented the cooldown modifier from functioning
+                            for Ana’s Sleep Dart Fixed a bug that caused some weapons to stop playing sound effects when
+                            “No Ammunition Requirement” was used Fixed a bug that caused parties to be split up between teams
+                            when joining a custom game Competitive Play Fixed an issue that could prevent the 30 and 60-second
+                            audio callouts from being played at the end of a match Fixed a bug that prevented players from
+                            grouping based on skill rating restrictions during the off season Heroes Fixed a bug that caused
+                            Lúcio’s healing and speed song auras to be inaccurately projected Fixed a bug that prevented
+                            Discord Orb from being removed when Mercy uses her Resurrect Ultimate Fixed a bug that prevented
+                            Orisa’s Fortify from blocking the alternate fire from Lúcio’s Sonic Amplifier Fixed a bug that
+                            prevented Roadhog's hook from pulling enemies into the reticle when the target was on higher
+                            ground Fixed a bug that prevented Orisa’s Protective Barrier from deploying in certain situations
+                            Fixed an issue that affected some graphics cards, causing an inaccurate ammo count to be displayed
+                            with Pharah’s Mechaqueen and Raptorion skins equipped Fixed a bug that could prevent two charging
+                            Reinhardts from being able to kill each other Fixed a bug that allowed Reinhardt to damage himself
+                            twice when charging a Fortified Orisa Fixed a bug that prevented Winston’sPrimal Rage ultimate
+                            from restoring his health when hit by Ana’s Biotic Grenade Maps Fixed a bug that caused Tracer
+                            to move oddly when she first appeared in the tutorial Fixed an issue causing asymmetry between
+                            pillars on the Ruins capture point on Ilios Fixed a bug that allowed Sombra to reach unintended
+                            locations on Numbani Fixed a bug that allowed players to reach an unintended location on Route
+                            66 Fixed a bug that allowed Sombra to reach unintended locations on Watchpoint: Gibraltar
+                        </div>
+                    </div>
+
+                </ms-widget-front>
+            </ms-widget>
+        </div>
+    </div>
+</div>
