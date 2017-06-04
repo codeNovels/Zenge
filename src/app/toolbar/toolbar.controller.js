@@ -1,15 +1,16 @@
-(function ()
-{
+(function () {
     'use strict';
 
     angular
         .module('app.toolbar')
         .controller('ToolbarController', ToolbarController);
 
+    ToolbarController.$inject = ['$rootScope', '$q', '$state', '$timeout', '$mdSidenav', '$translate', '$mdToast', 'msNavigationService', 'gamesService', '$scope'] 
+
     /** @ngInject */
-    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService)
-    {
+    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService, gamesService, $scope) {
         var vm = this;
+        $scope.windowSize = document.documentElement.clientWidth;
 
         // Data
         $rootScope.global = {
@@ -20,48 +21,48 @@
         vm.userStatusOptions = [
             {
                 'title': 'Online',
-                'icon' : 'icon-checkbox-marked-circle',
+                'icon': 'icon-checkbox-marked-circle',
                 'color': '#4CAF50'
             },
             {
                 'title': 'Away',
-                'icon' : 'icon-clock',
+                'icon': 'icon-clock',
                 'color': '#FFC107'
             },
             {
                 'title': 'Do not Disturb',
-                'icon' : 'icon-minus-circle',
+                'icon': 'icon-minus-circle',
                 'color': '#F44336'
             },
             {
                 'title': 'Invisible',
-                'icon' : 'icon-checkbox-blank-circle-outline',
+                'icon': 'icon-checkbox-blank-circle-outline',
                 'color': '#BDBDBD'
             },
             {
                 'title': 'Offline',
-                'icon' : 'icon-checkbox-blank-circle-outline',
+                'icon': 'icon-checkbox-blank-circle-outline',
                 'color': '#616161'
             }
         ];
         vm.languages = {
             en: {
-                'title'      : 'English',
+                'title': 'English',
                 'translation': 'TOOLBAR.ENGLISH',
-                'code'       : 'en',
-                'flag'       : 'us'
+                'code': 'en',
+                'flag': 'us'
             },
             es: {
-                'title'      : 'Spanish',
+                'title': 'Spanish',
                 'translation': 'TOOLBAR.SPANISH',
-                'code'       : 'es',
-                'flag'       : 'es'
+                'code': 'es',
+                'flag': 'es'
             },
             tr: {
-                'title'      : 'Turkish',
+                'title': 'Turkish',
                 'translation': 'TOOLBAR.TURKISH',
-                'code'       : 'tr',
-                'flag'       : 'tr'
+                'code': 'tr',
+                'flag': 'tr'
             }
         };
 
@@ -82,8 +83,7 @@
         /**
          * Initialize
          */
-        function init()
-        {
+        function init() {
             // Select the first status as a default
             vm.userStatus = vm.userStatusOptions[0];
 
@@ -97,8 +97,7 @@
          *
          * @param sidenavId
          */
-        function toggleSidenav(sidenavId)
-        {
+        function toggleSidenav(sidenavId) {
             $mdSidenav(sidenavId).toggle();
         }
 
@@ -106,24 +105,21 @@
          * Sets User Status
          * @param status
          */
-        function setUserStatus(status)
-        {
+        function setUserStatus(status) {
             vm.userStatus = status;
         }
 
         /**
          * Logout Function
          */
-        function logout()
-        {
+        function logout() {
             // Do logout here..
         }
 
         /**
          * Change Language
          */
-        function changeLanguage(lang)
-        {
+        function changeLanguage(lang) {
             vm.selectedLanguage = lang;
 
             /**
@@ -138,15 +134,14 @@
              * end of this if block. If you have all the translation files, remove this if
              * block and the translations should work without any problems.
              */
-            if ( lang.code !== 'en' )
-            {
+            if (lang.code !== 'en') {
                 var message = 'Fuse supports translations through angular-translate module, but currently we do not have any translations other than English language. If you want to help us, send us a message through ThemeForest profile page.';
 
                 $mdToast.show({
-                    template : '<md-toast id="language-message" layout="column" layout-align="center start"><div class="md-toast-content">' + message + '</div></md-toast>',
+                    template: '<md-toast id="language-message" layout="column" layout-align="center start"><div class="md-toast-content">' + message + '</div></md-toast>',
                     hideDelay: 7000,
-                    position : 'top right',
-                    parent   : '#content'
+                    position: 'top right',
+                    parent: '#content'
                 });
 
                 return;
@@ -159,16 +154,14 @@
         /**
          * Toggle horizontal mobile menu
          */
-        function toggleHorizontalMobileMenu()
-        {
+        function toggleHorizontalMobileMenu() {
             vm.bodyEl.toggleClass('ms-navigation-horizontal-mobile-menu-active');
         }
 
         /**
          * Toggle msNavigation folded
          */
-        function toggleMsNavigationFolded()
-        {
+        function toggleMsNavigationFolded() {
             msNavigationService.toggleFolded();
         }
 
@@ -178,43 +171,59 @@
          * @param query
          * @returns {Promise}
          */
-        function search(query)
-        {
+        function search(query) {
             var navigation = [],
+
                 flatNavigation = msNavigationService.getFlatNavigation(),
                 deferred = $q.defer();
 
+            gamesService.getList()
+                .then(function (data) {
+                    vm.games = data.games.top;
+                    for (var x = 0; x < vm.games.length; x++) {
+                        navigation.push(vm.games[x]);
+                    }
+
+                    if (query) {
+                        navigation = navigation.filter(function (item) {
+                            if (angular.lowercase(item.game.name).search(angular.lowercase(query)) > -1) {
+                                return true;
+                            }
+                        });
+                    }
+
+                    $timeout(function () {
+                        deferred.resolve(navigation);
+                    }, 1000);
+                });
             // Iterate through the navigation array and
             // make sure it doesn't have any groups or
             // none ui-sref items
-            for ( var x = 0; x < flatNavigation.length; x++ )
-            {
-                if ( flatNavigation[x].uisref )
-                {
-                    navigation.push(flatNavigation[x]);
-                }
-            }
+            // for (var x = 0; x < flatNavigation.length; x++) {
+            //     if (flatNavigation[x].uisref) {
+            //         navigation.push(flatNavigation[x]);
+            //     }
+            // }
+            // for (var x = 0; x < vm.games.length; x++) {
+            //     navigation.push(vm.games[x]);
+            // }
 
             // If there is a query, filter the navigation;
             // otherwise we will return the entire navigation
             // list. Not exactly a good thing to do but it's
             // for demo purposes.
-            if ( query )
-            {
-                navigation = navigation.filter(function (item)
-                {
-                    if ( angular.lowercase(item.title).search(angular.lowercase(query)) > -1 )
-                    {
-                        return true;
-                    }
-                });
-            }
+            // if (query) {
+            //     navigation = navigation.filter(function (item) {
+            //         if (angular.lowercase(item.game.name).search(angular.lowercase(query)) > -1) {
+            //             return true;
+            //         }
+            //     });
+            // }
 
             // Fake service delay
-            $timeout(function ()
-            {
-                deferred.resolve(navigation);
-            }, 1000);
+            // $timeout(function () {
+            //     deferred.resolve(navigation);
+            // }, 1000);
 
             return deferred.promise;
         }
@@ -224,19 +233,15 @@
          *
          * @param item
          */
-        function searchResultClick(item)
-        {
+        function searchResultClick(item) {
             // If item has a link
-            if ( item.uisref )
-            {
+            if (item.uisref) {
                 // If there are state params,
                 // use them...
-                if ( item.stateParams )
-                {
+                if (item.stateParams) {
                     $state.go(item.state, item.stateParams);
                 }
-                else
-                {
+                else {
                     $state.go(item.state);
                 }
             }

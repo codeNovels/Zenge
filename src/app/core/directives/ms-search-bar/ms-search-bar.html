@@ -31,12 +31,14 @@
              md-ink-ripple>
             <div layout="row" layout-align="start center">
                 <div class="icon-container" layout="row" layout-align="center center">
-                    <i ng-if="result.icon" class="icon {{result.icon}}"></i>
-                    <div ng-if="!result.icon" class="square md-accent-bg"></div>
+                    <!--<i ng-if="result.icon" class="icon {{result.icon}}"></i>
+                    <div ng-if="!result.icon" class="square md-accent-bg"></div>-->
+                    <div>
+                        <img style="height:3em; margin-top:-5px" ng-src="https://static-cdn.jtvnw.net/ttv-boxart/{{result.game.name}}-272x380.jpg" />
+                    </div>
                 </div>
                 <div>
-                    <div class="title">{{result.title}}</div>
-                    <div class="description" ng-if="result.description">{{result.description}}</div>
+                    <div class="title">{{result.game.name}}</div>
                 </div>
             </div>
         </div>
