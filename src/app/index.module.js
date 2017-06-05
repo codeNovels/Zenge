@@ -24,6 +24,9 @@
             'app.games',
 
             // Channels
-            'app.channels'
+            'app.channels',
+
+            // User
+            'app.user'
         ]);
 })();

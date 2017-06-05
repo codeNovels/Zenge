@@ -1,28 +1,31 @@
-(function ()
-{
+(function () {
     'use strict';
 
     angular
         .module('app.games')
         .controller('GamesController', GamesController);
 
-    GamesController.$inject = ['Data', 'gamesService'];
+    GamesController.$inject = ['Data', 'gamesService','$state'];
 
     /** @ngInject */
-    function GamesController(Data, gamesService)
-    {
+    function GamesController(Data, gamesService, $state) {
         var vm = this;
 
         // Data
         vm.helloText = Data.data.helloText;
+        vm.goToGame = goToGame;
 
         getList();
 
         // Methods
-       function getList() {
+        function goToGame(game) {
+            $state.go('app.channels', { type: 'game', name: game.name});
+        }
+
+        function getList() {
             gamesService.getList()
-                .then(function(data) {
-                    vm.games = data.games.top;                  
+                .then(function (data) {
+                    vm.games = data.games.top;
                 });
         }
     }

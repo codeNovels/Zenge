@@ -1,0 +1,19 @@
+<!--<div id="playerId"></div>
+<script type="text/javascript">
+    var options = {
+        width: 800,
+        height: 400,
+        channel: "156567621"
+    };
+    var player = new Twitch.Player("playerId", options);
+    player.setVolume(0.5);
+</script>-->
+{{vm.channel}}
+<iframe
+    ng-src="{{url}}"
+    height="100%"
+    width="100%"
+    frameborder="0"
+    scrolling="no"
+    allowfullscreen="true">
+</iframe>

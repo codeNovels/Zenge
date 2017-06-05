@@ -1,14 +1,11 @@
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
     <ms-widget ng-repeat="channel in vm.channels" flippable="true" layout="column" flex="100" flex-gt-xs="25" flex-gt-md="25"
-        class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100">
+        class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100" ng-click="vm.goToUser(channel)">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
                 <div class="ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
-                    <!--<div class="light-blue-fg font-size-72 line-height-72 ng-binding">25%</div>
-                <div class="h3 secondary-text font-weight-500 ng-binding">CONVERSION RATE</div>-->
                     <div>
                         <img ng-src="{{channel.preview.medium}}" />
-
                     </div>
                 </div>
             </a>

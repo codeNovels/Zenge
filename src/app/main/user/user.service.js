@@ -2,13 +2,13 @@
     'use strict';
 
     angular
-        .module('app.games')
-        .factory('gamesService', gamesService);
+        .module('app.user')
+        .factory('userService', userService);
 
-    gamesService.$inject = ['$http'];
+    userService.$inject = ['$http'];
 
     /* @ngInject */
-    function gamesService($http) {
+    function userService($http) {
         var service = {
             getList: getList
         };
@@ -17,15 +17,15 @@
 
 
         // Services
-        function getList(ticketId) {
-            var url = 'https://api.twitch.tv/kraken/games/top?limit=100&on_site=1&client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
+        function getList(channel) {
+            var url = 'https://api.twitch.tv/kraken/streams/' + channelId + '?client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
             return $http.get(url)
                 .then(getListComplete)
                 .catch(getListFailed);
 
             function getListComplete(response) {
                 return {
-                    games : response.data
+                    user: response.data
                 };
             }
 
