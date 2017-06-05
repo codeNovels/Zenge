@@ -11,7 +11,7 @@
     {
         $locationProvider.html5Mode(true);
 
-        $urlRouterProvider.otherwise('/games');
+        $urlRouterProvider.otherwise('/user');
 
         /**
          * Layout Style Switcher
@@ -33,7 +33,7 @@
         ]);
 
         // Get active layout
-        var layoutStyle = $cookies.get('layoutStyle') || 'verticalNavigation';
+        var layoutStyle = $cookies.get('layoutStyle') || 'verticalNavigationFullwidthToolbar2';
 
         var layouts = {
             verticalNavigation  : {
