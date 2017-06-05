@@ -11,7 +11,7 @@
     {
         // State
         $stateProvider
-            .state('app.user', {
+            .state('app.channels.user', {
                 url    : '/user/:channel?',
                 views  : {
                     'content@app': {
