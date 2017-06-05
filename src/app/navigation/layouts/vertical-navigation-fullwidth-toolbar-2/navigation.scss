@@ -27,12 +27,14 @@
     .ms-navigation-folded {
 
         #content-container {
-            margin-left: $navigationFoldedWidth;
+            margin-left: 0px;
         }
 
         #layout-vertical-navigation-fullwidth-toolbar-2 {
 
             #vertical-navigation {
+                min-width: 0px !important;
+                width: 0px !important;
                 position: absolute;
             }
         }

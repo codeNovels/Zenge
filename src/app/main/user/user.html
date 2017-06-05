@@ -8,12 +8,32 @@
     var player = new Twitch.Player("playerId", options);
     player.setVolume(0.5);
 </script>-->
-{{vm.channel}}
-<iframe
-    ng-src="{{url}}"
-    height="90%"
-    width="100%"
-    frameborder="0"
-    scrolling="no"
-    allowfullscreen="true">
-</iframe>
+<div id="dashboard-analytics" class="ng-scope">
+    <div id="widgets">
+        <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
+            <ms-widget flippable="false" layout="row" flex="100" class="ms-widget ng-isolate-scope layout-row flex-100">
+                <ms-widget-front class="white-bg ms-widget-front ng-scope">
+
+                    <div class="ng-scope layout-align-start-center layout-row" style="height:80vh" layout="row" layout-align="space-between center">
+                        <iframe ng-src="{{url}}" height="100%" width="100%" frameborder="0" scrolling="no" allowfullscreen="true">
+                        </iframe>
+                    </div>
+                    <div class="p-10 border-bottom ng-scope layout-align-space-between-center layout-row" layout="row" layout-align="space-between center">
+                        &nbsp;
+                        <button class="md-raised md-accent md-button md-default-theme md-ink-ripple" type="button">
+                             
+                             <md-icon md-font-icon="icon-coin" style="margin-top: -3px;" 
+                                class="ng-scope md-default-theme md-font material-icons icon-coin" role="img" aria-hidden="true">
+                            </md-icon>
+                             Donate&nbsp;
+                            <div class="md-ripple-container"></div>
+                            
+                        </button>
+
+
+                    </div>
+                </ms-widget-front>
+            </ms-widget>
+        </div>
+    </div>
+</div>
