@@ -11,7 +11,7 @@
     {
         $locationProvider.html5Mode(true);
 
-        $urlRouterProvider.otherwise('/user');
+        $urlRouterProvider.otherwise('/games');
 
         /**
          * Layout Style Switcher
