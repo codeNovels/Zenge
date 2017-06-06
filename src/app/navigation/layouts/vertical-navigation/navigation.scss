@@ -57,7 +57,7 @@
     .ms-navigation-folded {
 
         #content-container {
-            margin-left: $navigationFoldedWidth;
+            margin-left: 5px;
         }
 
         #vertical-navigation {
@@ -90,9 +90,9 @@
 
             #vertical-navigation {
                 position: absolute;
-                width: $navigationFoldedWidth;
-                min-width: $navigationFoldedWidth;
                 max-width: $navigationFoldedWidth;
+                width: 5px;
+                min-width: 5px;
 
                 .navigation-header {
                     padding: 0 16px;
