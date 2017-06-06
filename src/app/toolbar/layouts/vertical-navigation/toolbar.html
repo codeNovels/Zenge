@@ -1,51 +1,20 @@
 <div layout="row" layout-align="start center">
-    <div layout="row" layout-align="start center" flex style="height:40px">
+    <div layout="row" layout-align="start center" flex>
 
-        <a ui-sref="app.games">
-        <div ng-show="windowSize > 1000"  class="logo" layout="row" layout-align="start center" style="margin-right: -63px !important; height:40px">
-            <span><img style="height:1.5em" src="http://vignette2.wikia.nocookie.net/overwatch/images/5/50/Competitive_Master_Icon.png/revision/latest?cb=20161122023832"></img></span>
-            <span class="logo-text">Zenge</span>
-        </div>
-        </a>
-
-        <!--<md-button class="md-icon-button navigation-fold-toggle"
-                   hide show-gt-sm aria-label="Toggle navigation fold"
-                   translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION_FOLD"
-                   ng-click="vm.toggleMsNavigationFolded()" style="height:40px">
-                <md-icon class="s18" md-font-icon="icon-backburger"></md-icon>
-            </md-button>-->
-
-            <md-button class="md-icon-button navigation-fold-toggle"
-                    show-gt-sm aria-label="Toggle navigation fold"
-                   translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION_FOLD"
-                   ng-click="vm.toggleMsNavigationFolded()" style="height:40px">
-                <md-icon class="s18" md-font-icon="icon-backburger"></md-icon>
-            </md-button>
-
-        <!--<div class="toolbar-separator"></div>-->
-
-        <!--<md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')"
+        
+        <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')"
                    hide-gt-sm aria-label="Toggle navigation" translate
                    translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
             <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
-        </md-button>-->
+        </md-button>
 
-        <!--<md-button class="md-icon-button navigation-fold-toggle"
-                   hide show-gt-sm aria-label="Toggle navigation fold"
-                   translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION_FOLD"
-                   ng-click="vm.toggleMsNavigationFolded()">
-            <md-icon class="s18" md-font-icon="icon-backburger"></md-icon>
-        </md-button>-->
+        <!--<ms-shortcuts></ms-shortcuts>
 
-        <!--<ms-shortcuts></ms-shortcuts>-->
-        <!--<ms-search-bar on-search="vm.search(query)" on-result-click="vm.searchResultClick(item)" debounce="300"></ms-search-bar>-->
-
-        <div class="toolbar-separator"></div>
+        <div class="toolbar-separator"></div>-->
     </div>
 
     <div layout="row" layout-align="start center">
-        <md-progress-circular id="toolbar-progress" ng-if="$root.loadingProgress" class="md-accent"
-                              md-mode="indeterminate" md-diameter="32">
+        <md-progress-circular id="toolbar-progress" ng-disabled="!$root.loadingProgress"  class="md-accent" md-diameter="32">
         </md-progress-circular>
 
         <!--<md-menu-bar id="user-menu">
@@ -61,9 +30,9 @@
                                      class="icon status s16">
                             </md-icon>
                         </div>
-                        <span class="username" hide-sm>Novels</span>
+                        <span class="username" hide show-gt-sm>John Doe</span>
                         <md-icon md-font-icon="icon-chevron-down"
-                                 class="icon s16" hide-sm></md-icon>
+                                 class="icon s16" hide-xs></md-icon>
                     </div>
                 </md-button>
 
@@ -107,10 +76,14 @@
                     </md-menu-item>
                 </md-menu-content>
             </md-menu>
-        </md-menu-bar>-->
+        </md-menu-bar>
 
-        
-        <!--<div class="toolbar-separator"></div>
+        <div class="toolbar-separator"></div>
+
+        <ms-search-bar on-search="vm.search(query)" on-result-click="vm.searchResultClick(item)" debounce="300"></ms-search-bar>
+
+        <div class="toolbar-separator"></div>
+
         <md-menu id="language-menu" md-offset="0 72" md-position-mode="target-right target">
             <md-button class="language-button" ng-click="$mdOpenMenu()"
                        aria-label="Language" md-menu-origin md-menu-align-target>
@@ -119,6 +92,7 @@
                     <span class="iso">{{vm.selectedLanguage.code}}</span>
                 </div>
             </md-button>
+
             <md-menu-content width="3" id="language-menu-content">
                 <md-menu-item ng-repeat="(iso, lang) in vm.languages">
                     <md-button ng-click="vm.changeLanguage(lang)" aria-label="{{lang.title}}" translate
@@ -136,8 +110,7 @@
 
         <md-button id="quick-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('quick-panel')"
                    aria-label="Toggle quick panel" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
-            <md-icon md-font-icon="icon-menu" class="icon" style="height:40px"></md-icon>
+            <md-icon md-font-icon="icon-message" class="icon"></md-icon>
         </md-button>
-        
     </div>
 </div>

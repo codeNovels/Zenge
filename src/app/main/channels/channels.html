@@ -16,9 +16,9 @@
             </div>
             <div class="p-5 grey-50-bg ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
                 layout="row" flex="100" layout-align="start center" ng-style="vm.windowSize < 360? {'padding-top': '10px'}:{'padding-top': '0px'}">
-                <span class="layout-align-start secondary-text text-truncate ng-binding" style="font-size:10px">
+                <span class="layout-align-start secondary-text text-truncate ng-binding" style="font-size:10px" ng-style="vm.windowSize < 360? {'color': 'rgb(33,150,243)'}: {'color': 'rgba(0,0,0,0.54)'}">
                     {{channel.viewers | number}} viewers on 
-                    <a style="color:rgba(0,0,0,0.54);font-size:10px">&nbsp; {{channel.channel.name}} </a>
+                    <a ng-style="vm.windowSize < 360? {'color': 'rgb(33,150,243)'}: {'color': 'rgba(0,0,0,0.54)'}"style="font-size:10px">&nbsp; {{channel.channel.name}} </a>
                 </span>
             </div>
         </ms-widget-front>

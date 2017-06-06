@@ -1,6 +1,6 @@
 #toolbar {
-    height: 40px;
-    min-height: 40px;
+    height: $toolbarHeight;
+    min-height: $toolbarHeight;
     max-height: $toolbarHeight;
     z-index: 55 !important;
 
@@ -69,13 +69,13 @@
 
     #quick-panel-toggle {
         width: $toolbarHeight;
-        height: 40px;
+        height: $toolbarHeight;
         margin: 0;
         border-radius: 0;
     }
 
     .toolbar-separator {
-        height: 40px;
+        height: $toolbarHeight;
         width: 1px;
         background: rgba(0, 0, 0, 0.12);
     }
