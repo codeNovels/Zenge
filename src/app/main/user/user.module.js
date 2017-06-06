@@ -12,7 +12,7 @@
         // State
         $stateProvider
             .state('app.channels.user', {
-                url    : '/user/:channel?',
+                url    : '/users?/:channel?',
                 views  : {
                     'content@app': {
                         templateUrl: 'app/main/user/user.html',
