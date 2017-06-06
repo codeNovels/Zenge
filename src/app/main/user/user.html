@@ -8,7 +8,15 @@
     var player = new Twitch.Player("playerId", options);
     player.setVolume(0.5);
 </script>-->
- <iframe ng-src="{{url}}" height="100%" width="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+ <iframe 
+    ng-src="{{url}}" 
+    height="100%" 
+    width="100%" 
+    frameborder="0" 
+    scrolling="no" 
+    allowfullscreen="true" 
+    playsinline="true">
+</iframe>
  <script>$('.player-button--twitch').remove();</script>
 
 

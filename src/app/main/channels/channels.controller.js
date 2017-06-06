@@ -24,7 +24,7 @@
 
         // Methods
         function goToUser(user) {
-            $state.go('app.channels.user', { channel: user.channel.name, });
+            $state.go('app.channels.user', { channel: user.channel.name });
         }
 
        function getList() {

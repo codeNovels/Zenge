@@ -6,7 +6,7 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($scope, $rootScope, $state) {
+    function MainController($scope, $rootScope, $state, userService) {
         // Data
         
         if($state.params !== undefined && $state.params.channel){

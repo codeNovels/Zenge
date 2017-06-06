@@ -1,175 +1,59 @@
-<form id="g4gDonate" name="donationForm" ng-show="!checkout.open || !checkout.show" class="ng-pristine ng-valid ng-valid-min">
- 
-<div class="songWrap">
-<label ng-class="{disabled: song.select_off}" style="width:calc(100% - 45px)" uib-tooltip-template="song.tooltip" tooltip-placement="bottom" tooltip-popup-delay="200" class="disabled">
-<script type="text/ng-template" id="song_off.html"><span>   {{ streamer.display }} has disabled Song Requests.                              </span></script>
-<script type="text/ng-template" id="song_cash.html"><span>  Donation amount required to unlock Song Requests is {{ song.min | currency : amount.currency_dispaly}}.   </span></script>
-<script type="text/ng-template" id="song_sub.html"><span>   You need to be {{ viewer.logged ? "" : "logged in and " }}subscribed to {{ streamer.display }} to unlock Song Requests. </span></script>
-<input type="text" class="songInput ng-pristine ng-untouched ng-valid" ng-model="song.url" placeholder="Enter Youtube or Clyp URL to play" ng-disabled="song.select_off" ng-class="{'ng-invalid': !song.valid}" disabled="disabled">
-</label><a style="font-size: 19px" uib-tooltip="record a sound on clyp.it" tooltip-placement="left-bottom" href="https://clyp.it/#record" target="_blank"><i class="fa fa-microphone"></i></a><i class="fa fa-question-circle" tooltip-placement="left-bottom" uib-tooltip="Enter a Youtube or Clyp URL that you'd like to play on the livestream for $1.00/30 seconds."></i><br>
-<div uib-collapse="song.select_off || !song.song_code" class="ng-binding collapse" style="height: 0px;">
-Will play 0 seconds, from 0:00 to 0:00
+<div class="p-10 border-bottom ng-scope layout-row layout-align-center-center" layout="row" layout-align="center center">
+                        &nbsp;
+                        <button class="md-raised .md-primary-bg md-hue-3 md-button md-default-theme md-ink-ripple" type="button">
+                             Under Construction
+                            <div class="md-ripple-container"></div>
+                        </button>
 </div>
-<div class="text-center collapse" uib-collapse="!song.showInfo" style="height: 0px;">
-<span style="font-size: 11px;">
-<span ng-bind-html="songInfoMsg" class="ng-binding"></span> <span style="color: red;" class="ng-binding">  </span>
-</span>
-</div>
-</div>
-<div id="donateHeader" ng-click="activate()">
-<div class="messageWrap">
-<textarea name="message" ng-focus="activate()" ng-model="message.text" rows="2" placeholder="Donation Message" class="ng-pristine ng-untouched ng-valid"></textarea>
-<span class="messageCounter ng-binding">0/200</span>
-<div class="messageIcons">
-<img class="messageShowIcon" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0" ng-click="message.emotesShow = !message.emotesShow">
-<div class="message-emote-pick ng-hide" ng-show="message.emotesShow">
-<!-- ngRepeat: (name, id) in message.emotes --><img ng-repeat="(name, id) in message.emotes" ng-src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0" ng-click="message.add(name)" class="ng-scope" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0"><!-- end ngRepeat: (name, id) in message.emotes --><img ng-repeat="(name, id) in message.emotes" ng-src="https://static-cdn.jtvnw.net/emoticons/v1/354/1.0" ng-click="message.add(name)" class="ng-scope" src="https://static-cdn.jtvnw.net/emoticons/v1/354/1.0"><!-- end ngRepeat: (name, id) in message.emotes --><img ng-repeat="(name, id) in message.emotes" ng-src="https://static-cdn.jtvnw.net/emoticons/v1/55338/1.0" ng-click="message.add(name)" class="ng-scope" src="https://static-cdn.jtvnw.net/emoticons/v1/55338/1.0"><!-- end ngRepeat: (name, id) in message.emotes -->
-</div>
-</div>
-</div>
-<div class="amountPickers">
-<!-- ngRepeat: x in [0, 1, 2] --><div class="amountPicker ng-scope" ng-repeat="x in [0, 1, 2]" ng-init="amount = $parent.amount">
-<button class="button ng-binding" ng-focus="activate()" ng-click="amount.totalChange(amount.btn[x])">
-5</button>
-</div><!-- end ngRepeat: x in [0, 1, 2] --><div class="amountPicker ng-scope" ng-repeat="x in [0, 1, 2]" ng-init="amount = $parent.amount">
-<button class="button ng-binding" ng-focus="activate()" ng-click="amount.totalChange(amount.btn[x])">
-10</button>
-</div><!-- end ngRepeat: x in [0, 1, 2] --><div class="amountPicker ng-scope" ng-repeat="x in [0, 1, 2]" ng-init="amount = $parent.amount">
-<button class="button ng-binding" ng-focus="activate()" ng-click="amount.totalChange(amount.btn[x])">
-25</button>
-</div><!-- end ngRepeat: x in [0, 1, 2] --> <div class="amountCustomWrap">
-<div class="prefix ng-binding">$</div>
-<input class="amountCustom ng-pristine ng-untouched ng-valid ng-valid-min" type="number" ng-focus="activate()" step="0.01" min="0" ng-model="amount.custom" ng-style="amount.currency_padding" ng-change="amount.totalChange(amount.custom)" style="padding-left: 30px;">
-</div> <div class="donateButton" uib-tooltip-template="call.tooltip || call.error || 'call_on.html'" tooltip-placement="top" tooltip-popup-delay="200">
-<script type="text/ng-template" id="call_off.html"><span>   {{ streamer.display }} has disabled Call Streamer.                              </span></script>
-<script type="text/ng-template" id="call_cash.html"><span>  Donation amount required to unlock Call Streamer is {{ call.min | currency : amount.currency_dispaly}}.   </span></script>
-<script type="text/ng-template" id="call_sub.html"><span>   You need to be {{ viewer.logged ? "" : "logged in and " }}subscribed to {{ streamer.display }} to unlock Call Streamer. </span></script>
-<script type="text/ng-template" id="call_error.html"><span> {{ call.error_msg }} </span></script>
-<script type="text/ng-template" id="call_on.html"><span>
-              {{
-                amount.total < amount.min
-                  ? "Minimum donation amount: " + amount.currency_dispaly + amount.min
-                  : "You will get connected with " + streamer.display + " for " + (call.time * amount.total / call.min) + " seconds (" + amount.currency_dispaly + call.min + "/" + call.time + " seconds). Have fun!"
-              }}
-            </span></script>
-<button class="button" ng-focus="activate(true);" ng-disabled="(activated &amp;&amp; !amount.enough) || checkout.open || call.select_off" ng-click="$event.stopImmediatePropagation(); setupCall();" ng-mouseenter="$event.stopImmediatePropagation(); setupCall(true);" style="background-color: #45a541;" disabled="disabled">
-<i class="fa fa-phone" aria-hidden="true"></i> Call Streamer
-</button>
-</div> <div class="donateButton" uib-tooltip="Minimum donation amount: $1.00" tooltip-enable="activated &amp;&amp; !amount.enough" tooltip-placement="left">
-<button class="button" ng-focus="activate(true)" ng-disabled="(activated &amp;&amp; !amount.enough) || checkout.open" ng-click="$event.stopImmediatePropagation(); monthly.on = false; call.on = false; submitData();" style="background-color: #376ecd;">
-Donate
-</button>
-</div> <div class="donateButton" style="margin-right: 0px !important;" uib-tooltip-template="monthly.tooltip" tooltip-placement="top" tooltip-popup-delay="200">
-<button class="button ng-binding" ng-focus="activate(true)" ng-disabled="(activated &amp;&amp; !amount.enough) || checkout.open || monthly.select_off" ng-click="$event.stopImmediatePropagation(); monthly.on = false; monthly.on = true; submitData();" style="background-color: #00aced;" disabled="disabled">
-Support Monthly
-</button>
-</div>
-</div>
-</div>
-<div uib-collapse="!formCollapse" class="collapse" style="height: 0px;">
-<div>
-<p class="loginReminder" ng-hide="viewer.logged" style="margin: 0; line-height:25px;">
-Nickname: <input type="text" ng-model="viewer.custom_name" placeholder="Anonymous" style="width: 90px; padding-left: 4px; margin: 0; font-size: 12px;" class="ng-pristine ng-untouched ng-valid"> <span style="color: #ba1414;font-size: 12px;">marked as unverified with '*'</span><br>
-<a ng-click="login($event)" style="font-weight: bold;">Login with twitch</a> to verify.
-<i class="fa fa-question-circle" uib-tooltip="If not logged in, your chosen nickname will be marked as unverified in the donation alert."></i>
-</p><div uib-collapse="!viewer.custom_name" style="color: rgb(186, 20, 20); font-size: 12px; height: 0px;" class="collapse">
-Name will not be listed for features such as 'Top Donator',
-this requires <a ng-click="login($event)" style="font-weight: bold;">Twitch login</a>.
-</div>
-<p></p>
-<div ng-show="!amount.split_disabled" class="">
-<button class="expandButton noButton" ng-class="{open:chooseCollapsed}" ng-click="chooseCollapsed = !chooseCollapsed; amount.split.unbind()" style="">
-Choose where my money goes
-</button> <br>
-<div uib-collapse="!chooseCollapsed" class="collapse" aria-expanded="false" aria-hidden="true" style="height: 0px;">
-<div class="splitWrap">
-<div class="splitInputs">
-<div class="pull-left amountWrap">
-<input class="pull-left clearInput ng-pristine ng-untouched ng-valid" type="number" step="0.01" ng-model="amount.split.streamer" ng-change="amount.split.update('streamer')" ng-style="amount.currency_is_short &amp;&amp; amount.currency_padding" ng-disabled="!streamer.active" ng-blur="amount.split.update('streamer')" style="padding-left: 30px;">
-<div class="prefix ng-binding" ng-show="amount.currency_is_short">$</div>
-</div>
-<rzslider rz-slider-model="amount.split.percent" rz-slider-options="amount.split.opt" class="ng-isolate-scope" role="slider"><span class="rz-bar-wrapper"><span class="rz-bar"></span></span> <span class="rz-bar-wrapper" style="opacity: 0; width: 0px; left: 0px;"><span class="rz-bar rz-selection"></span></span> <span class="rz-pointer" style="left: 0px;"></span> <span class="rz-pointer" style="display: none;"></span> <span class="rz-bubble rz-limit" style="opacity: 0;">0%</span> <span class="rz-bubble rz-limit" style="opacity: 0; left: 0px;">100%</span> <span class="rz-bubble" style="opacity: 1; left: 0px;">0%</span> <span class="rz-bubble" style="opacity: 0;"></span> <span class="rz-bubble" style="opacity: 0;"></span><ul class="rz-ticks"></ul></rzslider>
-<div class="pull-right amountWrap">
-<input class="pull-right clearInput ng-pristine ng-untouched ng-valid" type="number" step="0.01" ng-model="amount.split.charity" ng-change="amount.split.update('charity')" ng-style="amount.currency_padding" ng-disabled="!streamer.active" ng-blur="amount.split.update('charity')" style="padding-left: 30px;">
-<div class="prefix ng-binding">$</div>
-</div>
-</div>
-<div class="splitNames">
-<img ng-src="https://static-cdn.jtvnw.net/jtv_user_pictures/yoda-profile_image-63cdc656c9f91fb4-300x300.jpeg" class="pull-left" src="https://static-cdn.jtvnw.net/jtv_user_pictures/yoda-profile_image-63cdc656c9f91fb4-300x300.jpeg">
-<div class="pull-left splitName ng-binding">YoDa</div>
-<img src="https://static.gamingforgood.net/assets/img/stclogosquare.png" class="pull-right">
-<div class="pull-right splitName">Save The Children</div>
-</div>
-<div class="text-center collapse" uib-collapse="!splitMsgCollapsed" style="height: 0px;">
-<i class="ng-binding">After YoDa's first login on GamingForGood.net, personal donations will be enabled.</i>
-</div>
-<label class="chrome_checkbox" style="margin-top: 7px;">
-<input type="checkbox" ng-model="amount.tip_fees" class="ng-pristine ng-untouched ng-valid"><div></div> Tip transaction&nbsp;
-</label><label><a href="https://static.gamingforgood.net/assets/img/feetable.pdf" target="_blank">fees</a></label> <i class="fa fa-question-circle" uib-tooltip="Tip the streamer and/or charity any transaction fees (such as PayPal fees) that may apply. G2A Pay has lower transaction fees and provides more payment methods, benefitting Save the Children and the streamer."></i>
-<br>
-</div>
-</div>
-</div>
-<div ng-show="amount.split_disabled" class="ng-hide">
-<label class="chrome_checkbox">
-<input type="checkbox" ng-model="amount.tip_fees" class="ng-pristine ng-untouched ng-valid"><div></div> Tip transaction&nbsp;
-</label><label><a href="https://static.gamingforgood.net/assets/img/feetable.pdf" target="_blank">fees</a></label> <i class="fa fa-question-circle" uib-tooltip="Tip the streamer and/or charity any transaction fees (such as PayPal fees) that may apply. G2A Pay has lower transaction fees and provides more payment methods, benefitting Save the Children and the streamer."></i>
-</div>
-<div>
-<button class="expandButton noButton" ng-class="{open:ttsCollapsed}" ng-click="ttsCollapsed = !ttsCollapsed; amount.split.unbind()">
-Voice Selection
-</button><i class="fa fa-question-circle" uib-tooltip="Your donation will be read by a computer voice on the livestream."></i><br>
-<div class="ttsWrap collapse" uib-collapse="!ttsCollapsed" style="height: 0px;">
-<div>
-<script type="text/ng-template" id="tts_off.html"><span>    {{ streamer.display }} has disabled Text-To-Speech.                           </span></script>
-<script type="text/ng-template" id="tts_cash.html"><span>   Donation amount required to unlock Text-To-Speech is {{ tts.min | currency : amount.currency_dispaly}}. </span></script>
-<script type="text/ng-template" id="tts_sub.html"><span>    You need to be {{ viewer.logged ? "" : "logged in and " }}subscribed to {{ streamer.display }} to unlock Text-To-Speech. </span></script>
-<script type="text/ng-template" id="tts_select.html"><span> {{ streamer.display }} has disabled this option.                              </span></script>
-<script type="text/ng-template" id="tts_secret.html"><span> Your donation comment is a Secret Message and will not be read by the computer voice.</span></script>
- 
-<span class="ib" uib-tooltip-template="tts.tooltip" tooltip-placement="top" tooltip-popup-delay="200">
-<label class="ttsLabel disabled" ng-class="{disabled: tts.select_off, select: tts.lang == 'custom'}">
-<input type="radio" ng-model="tts.lang" value="custom" ng-disabled="tts.select_off" class="ng-pristine ng-untouched ng-valid" name="13" disabled="disabled">
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/30259/1.0">
-</label>
- 
-<span class="ib" uib-tooltip-template="'tts_select.html'" tooltip-enable="tts.stock_off &amp;&amp; !tts.tooltip" tooltip-placement="top" tooltip-popup-delay="200">
-<label class="ttsLabel disabled" ng-class="{disabled: tts.stock_off, select: tts.lang == 0}">
-<input type="radio" ng-model="tts.lang" value="0" ng-disabled="tts.stock_off" class="ng-pristine ng-untouched ng-valid" name="14" disabled="disabled">
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/28/1.0">
-</label>
-<label class="ttsLabel disabled" ng-class="{disabled: tts.stock_off, select: tts.lang == 1}">
-<input type="radio" ng-model="tts.lang" value="1" ng-disabled="tts.stock_off" class="ng-pristine ng-untouched ng-valid" name="15" disabled="disabled">
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/74/1.0">
-</label>
-<label class="ttsLabel disabled" ng-class="{disabled: tts.stock_off, select: tts.lang == 2}">
-<input type="radio" ng-model="tts.lang" value="2" ng-disabled="tts.stock_off" class="ng-pristine ng-untouched ng-valid" name="16" disabled="disabled">
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/47008/1.0">
-</label>
-</span>
-</span>
-<label class="ttsLabel select" ng-class="{select: tts.lang == 'mute'}">
-<input type="radio" ng-model="tts.lang" value="mute" class="ng-pristine ng-untouched ng-valid" name="19">
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/1073/1.0">
-</label>
-</div>
-</div>
-</div>
-<script type="text/ng-template" id="monthly_off.html"><span> {{ streamer.display }} didn&apos;t enable recurring donations                      </span></script>
-<script type="text/ng-template" id="monthly_soon.html"><span>Feature coming soon</span></script>
-<label ng-show="viewer.logged" ng-class="{disabled: anon.select_off, chrome_checkbox: true}" uib-tooltip-template="anon.tooltip" tooltip-placement="top" tooltip-popup-delay="200" class="ng-hide disabled chrome_checkbox">
-<script type="text/ng-template" id="anon_log.html"><span>     Login to have your name displayed.                                                </span></script>
-<input ng-model="anon.on" type="checkbox" ng-disabled="anon.select_off" class="ng-pristine ng-untouched ng-valid" disabled="disabled"><div></div> Donate anonymously
-</label> <br ng-show="viewer.logged" class="ng-hide">
-<label ng-class="{disabled: secret.select_off, chrome_checkbox: true}" uib-tooltip-template="secret.tooltip" tooltip-placement="top" tooltip-popup-delay="200" class="ng-binding chrome_checkbox disabled">
-<script type="text/ng-template" id="secret_active.html"><span>After {{ streamer.display }}&apos;s first login on GamingForGood.net, secret messages will be enabled.</span></script>
-<script type="text/ng-template" id="secret_off.html"><span>   {{ streamer.display }} has disabled Secret Messages.                              </span></script>
-<script type="text/ng-template" id="secret_cash.html"><span>  Donation amount required to unlock Secret Messages is {{ secret.min | currency : amount.currency_dispaly}}. </span></script>
-<script type="text/ng-template" id="secret_sub.html"><span>   You need to be {{ viewer.logged ? "" : "logged in and " }}subscribed to {{ streamer.display }} to unlock Secret Messages.    </span></script>
-<input ng-model="secret.on" type="checkbox" ng-disabled="secret.select_off" class="ng-pristine ng-untouched ng-valid" disabled="disabled"><div></div> Secret message to YoDa
-</label><i class="fa fa-question-circle" uib-tooltip="Enable to have your donation message not appear on the stream. Only YoDa will be able to read your message."></i><br>
- 
-<div class="hideButton"><button class="noButton" ng-click="formCollapse = false">HIDE</button></div>
-</div>
-</div>
-</form>
+
+<!--<md-list class="friends">
+    <md-subheader class="md-no-sticky">
+        <span translate="QUICKPANEL.FRIENDS">Friends</span>
+    </md-subheader>
+
+    <md-list-item class="friend md-3-line" ng-repeat="friend in vm.activities.friends">
+        <img ng-src="{{friend.avatar}}" class="md-avatar" alt="{{friend.name}}"/>
+
+        <div class="status {{friend.status}}"></div>
+
+        <div ng-if="contact.unread" class="md-accent-bg unread-message-count">{{contact.unread}}</div>
+
+        <div class="md-list-item-text">
+            <h3 class="message">{{friend.message}}</h3>
+            <p class="time">{{friend.time}}</p>
+        </div>
+    </md-list-item>
+</md-list>
+
+<md-divider></md-divider>
+
+<md-list class="servers">
+    <md-subheader class="md-no-sticky">
+        <span translate="QUICKPANEL.APP_SERVERS">Application Servers</span>
+    </md-subheader>
+
+    <md-list-item class="server md-3-line" ng-repeat="server in vm.activities.servers">
+        <md-icon md-font-icon="icon-checkbox-blank-circle" class="s16 status" ng-class="server.status"></md-icon>
+
+        <div class="md-list-item-text">
+            <h3>{{server.location}}</h3>
+            <p>{{server.detail}}</p>
+        </div>
+    </md-list-item>
+</md-list>
+
+<md-divider></md-divider>
+
+<md-list class="stats">
+    <md-subheader class="md-no-sticky">
+        <span translate="QUICKPANEL.USER_STATS">User Stats</span>
+    </md-subheader>
+
+    <md-list-item class="stat md-2-line" ng-repeat="stat in vm.activities.stats">
+        <div class="md-list-item-text">
+            <span>{{stat.title}} ({{stat.current}} / {{stat.total}})</span>
+            <md-progress-linear ng-class="stat.status" md-mode="determinate"
+                                value="{{stat.percent}}"></md-progress-linear>
+        </div>
+    </md-list-item>
+</md-list>-->
