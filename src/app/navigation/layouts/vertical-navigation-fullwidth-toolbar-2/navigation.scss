@@ -27,14 +27,15 @@
     .ms-navigation-folded {
 
         #content-container {
-            margin-left: 0px;
+            //margin-left: $navigationFoldedWidth;
+            margin-left:5px;
         }
 
         #layout-vertical-navigation-fullwidth-toolbar-2 {
 
             #vertical-navigation {
-                min-width: 0px !important;
-                width: 0px !important;
+                 //min-width: 1px !important;
+                 //width: 1px !important;
                 position: absolute;
             }
         }
@@ -45,9 +46,12 @@
 
                 #vertical-navigation {
                     position: absolute;
-                    width: $navigationFoldedWidth;
-                    min-width: $navigationFoldedWidth;
+                   // width: $navigationFoldedWidth;
+                   // min-width: $navigationFoldedWidth;
                     max-width: $navigationFoldedWidth;
+
+                    width: 5px;
+                    min-width: 5px;
 
                     .navigation-header {
                         padding: 0 16px;

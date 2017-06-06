@@ -1,5 +1,4 @@
-(function ()
-{
+(function () {
     'use strict';
 
     angular
@@ -7,17 +6,25 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($scope, $rootScope)
-    {
+    function MainController($scope, $rootScope, $state) {
         // Data
+        
+        if($state.params !== undefined && $state.params.channel){
+            $rootScope.channel = $state.params.channel
+        }
 
+        $rootScope.$on('$stateChangeStart',
+            function (event, toState, toParams, fromState, fromParams) {
+               if (toParams.channel && $rootScope.channel !== toParams.channel){
+                   $rootScope.channel = toParams.channel
+               }
+        })
+        
         //////////
 
         // Remove the splash screen
-        $scope.$on('$viewContentAnimationEnded', function (event)
-        {
-            if ( event.targetScope.$id === $scope.$id )
-            {
+        $scope.$on('$viewContentAnimationEnded', function (event) {
+            if (event.targetScope.$id === $scope.$id) {
                 $rootScope.$broadcast('msSplashScreen::remove');
             }
         });

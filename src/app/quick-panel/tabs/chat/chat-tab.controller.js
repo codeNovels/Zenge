@@ -7,14 +7,24 @@
         .controller('ChatTabController', ChatTabController);
 
     /** @ngInject */
-    function ChatTabController(msApi, $timeout)
+    function ChatTabController(msApi, $timeout, $state, $rootScope, $sce, $scope)
     {
         var vm = this;
+
+        
+        $scope.user = $rootScope.channel;
+        $scope.$watch('$root.channel', function (newValue, oldValue) {
+            if (newValue !== oldValue){
+                $scope.user = $rootScope.channel
+                vm.url = $sce.trustAsResourceUrl('http://www.twitch.tv/'+$scope.user+'/chat')
+            }
+        });
 
         // Data
         vm.chat = {};
         vm.chatActive = false;
         vm.replyMessage = '';
+        vm.url = $sce.trustAsResourceUrl('http://www.twitch.tv/'+$scope.user+'/chat')
 
         msApi.request('quickPanel.contacts@get', {},
             // Success

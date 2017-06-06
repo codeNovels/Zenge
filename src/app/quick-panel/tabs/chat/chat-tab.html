@@ -1,4 +1,4 @@
-<div class="main animate-slide-left" ng-hide="vm.chatActive">
+<!--<div class="main animate-slide-left" ng-hide="vm.chatActive">
     <md-list class="recent">
         <md-subheader class="md-no-sticky">
             <span translate="QUICKPANEL.RECENT">Recent</span>
@@ -92,4 +92,12 @@
             <md-icon md-font-icon="icon-send" class="s16"></md-icon>
         </md-button>
     </form>
-</div>
+</div>-->
+
+<iframe frameborder="0" 
+        scrolling="no" 
+        id="chat_embed" 
+        ng-src="{{vm.url}}" 
+        height="100%" 
+        width="330">
+</iframe>
