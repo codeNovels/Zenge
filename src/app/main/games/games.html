@@ -10,8 +10,9 @@
         }
     }
 </style>-->
+
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
-    <ms-widget ng-repeat="game in vm.games" flippable="true" layout="column" flex="50" ng-style="vm.windowSize < 350? {'max-width':'11em'}: {'max-width':'18em'}"
+    <ms-widget ng-repeat="game in vm.games" flippable="true" layout="column" flex="50" ng-style="vm.windowSize < 350? {'max-width':'22.5em', 'margin':'4%'}: {'max-width':'18em'}"
         class="ms-widget ng-isolate-scope layout-column flex-gt-xs-50 flex-gt-md-15 flex-gt-lg-10 flex-gt-xl-5 flex-50" ng-click="vm.goToGame(game.game)">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
@@ -22,13 +23,13 @@
                 </div>
             </a>
             <div class="p-5 grey-50-bg border-top ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
-                layout="row" flex="100" layout-align="start center" style="padding-bottom: 0px;">
+                layout="row" flex="100" layout-align="start center" style="padding-bottom: 0px;" ng-show="vm.windowSize < 350? false: true">
                 <span class="layout-align-start text-truncate ng-binding">
                     <a style="color:rgba(0,0,0,0.54);">{{game.game.name}}</a>
                     </span>
             </div>
             <div class="p-5 grey-50-bg ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
-                layout="row" flex="100" layout-align="start center" style="padding-top: 0px;">
+                layout="row" flex="100" layout-align="start center" style="padding-top: 0px;" ng-show="vm.windowSize < 350? false: true">
                 <span class="secondary-text text-truncate ng-binding" style="font-size:10px">Viewers: {{game.viewers}}</span>
                 </span>
             </div>
