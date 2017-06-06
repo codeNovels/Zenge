@@ -12,7 +12,7 @@
 </style>-->
 
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
-    <ms-widget ng-repeat="game in vm.games" flippable="true" layout="column" flex="50" ng-style="vm.windowSize < 350? {'max-width':'22.5em', 'margin':'4%'}: {'max-width':'18em'}"
+    <ms-widget ng-repeat="game in vm.games" flippable="true" layout="column" flex="50"
         class="ms-widget ng-isolate-scope layout-column flex-gt-xs-50 flex-gt-md-15 flex-gt-lg-10 flex-gt-xl-5 flex-50" ng-click="vm.goToGame(game.game)">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
