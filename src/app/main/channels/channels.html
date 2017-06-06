@@ -1,7 +1,7 @@
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
     <ms-widget ng-repeat="channel in vm.channels" flippable="true" layout="column" flex="100" 
         flex-gt-xs="25" flex-gt-md="20" class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100" 
-        ng-click="vm.goToUser(channel)" style="max-width:22em">
+        ng-click="vm.goToUser(channel)" ng-style="vm.windowSize < 360? {'max-width':'50em'}: {'max-width':'22em'}">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
                 <div class="ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">

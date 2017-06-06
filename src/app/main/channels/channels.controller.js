@@ -16,6 +16,8 @@
         var type = $state.params.type?$state.params.type:'';
         var name = $state.params.name?$state.params.name:'';
 
+        vm.windowSize = document.documentElement.clientWidth;
+
         // Data
         vm.helloText = Data.data.helloText;
         vm.goToUser = goToUser;

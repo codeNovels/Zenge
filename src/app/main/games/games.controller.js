@@ -10,6 +10,7 @@
     /** @ngInject */
     function GamesController(Data, gamesService, $state) {
         var vm = this;
+        vm.windowSize = document.documentElement.clientWidth;
 
         // Data
         vm.helloText = Data.data.helloText;
