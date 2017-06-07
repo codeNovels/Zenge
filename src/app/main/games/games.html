@@ -1,19 +1,7 @@
-<!--<style>
-    @media screen and (min-width: 1280px) {
-        .layout-row>.flex-gt-md-15 {
-            -webkit-box-flex: 1;
-            -webkit-flex: 1 1 100%;
-            flex: 1 1 100%;
-            max-width: 18em;
-            max-height: 100%;
-            box-sizing: border-box;
-        }
-    }
-</style>-->
-
-<div class="widget-group layout-wrap layout-row" layout="row" layout-wrap="">
-    <ms-widget ng-repeat="game in vm.games" flippable="true" layout="row" flex="50"
-        class="ms-widget ng-isolate-scope layout-row flex-gt-xs-50 flex-gt-md-15 flex-gt-lg-10 flex-gt-xl-5" ng-click="vm.goToGame(game.game)">
+<div class="widget-group layout-wrap layout-row" layout="row" layout-wrap>
+    <ms-widget ng-repeat="game in vm.games" layout="row" flex="50"
+        class="ms-widget ng-isolate-scope layout-row flex-gt-xs-50 flex-gt-md-15 flex-gt-lg-10 flex-gt-xl-5" 
+        ng-click="vm.goToGame(game.game)">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
                 <div class="ng-scope layout-align-center-center layout-row" layout="row" layout-align="center center">
