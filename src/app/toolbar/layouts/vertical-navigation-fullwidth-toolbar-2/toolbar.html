@@ -1,11 +1,26 @@
-<div layout="row" layout-align="start center">
+<div layout="row" layout-align="start center" style="background-color: rgba(42, 116, 252, 1)">
     <div layout="row" layout-align="start center" flex style="height:40px">
 
-        <a ui-sref="app.games">
+        <!--<a ui-sref="app.games">
         <div ng-show="windowSize > 1000"  class="logo" layout="row" layout-align="start center" style="margin-right: -63px !important; height:40px">
             <span><img style="height:1.5em" src="http://vignette2.wikia.nocookie.net/overwatch/images/5/50/Competitive_Master_Icon.png/revision/latest?cb=20161122023832"></img></span>
             <span class="logo-text">Zenge</span>
         </div>
+        </a>-->
+
+        <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSideNavByWindowSize()" aria-label="Toggle navigation"
+            translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
+            <md-icon md-font-icon="icon-menu" class="icon" style="color:#FFF"></md-icon>
+        </md-button>
+        <!--<md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleMsNavigationFolded()" show-gt-md aria-label="Toggle navigation"
+            translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
+            <md-icon md-font-icon="icon-menu" class="icon" style="color:#FFF"></md-icon>
+        </md-button>-->
+
+        <a ui-sref="app.games" style="width: 100%">
+            <div class="logo" layout="row" layout-align="start center" ng-style="windowSize < 800? {'margin':'auto','width':'50%'}: {}">
+                <span><img style="height:1.5em" src="assets/images/logos/zenge.png"></img></span>
+            </div>
         </a>
 
         <!--<md-button class="md-icon-button navigation-fold-toggle"
@@ -15,12 +30,7 @@
                 <md-icon class="s18" md-font-icon="icon-backburger"></md-icon>
             </md-button>-->
 
-            <md-button class="md-icon-button navigation-fold-toggle"
-                    show-gt-sm aria-label="Toggle navigation fold"
-                   translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION_FOLD"
-                   ng-click="vm.toggleMsNavigationFolded()" style="height:40px">
-                <md-icon class="s18" md-font-icon="icon-backburger"></md-icon>
-            </md-button>
+
 
         <!--<div class="toolbar-separator"></div>-->
 
@@ -40,12 +50,11 @@
         <!--<ms-shortcuts></ms-shortcuts>-->
         <!--<ms-search-bar on-search="vm.search(query)" on-result-click="vm.searchResultClick(item)" debounce="300"></ms-search-bar>-->
 
-        <div class="toolbar-separator"></div>
+        <!--<div class="toolbar-separator"></div>-->
     </div>
 
     <div layout="row" layout-align="start center">
-        <md-progress-circular id="toolbar-progress" ng-if="$root.loadingProgress" class="md-accent"
-                              md-mode="indeterminate" md-diameter="32">
+        <md-progress-circular id="toolbar-progress" ng-if="$root.loadingProgress" class="md-accent" md-mode="indeterminate" md-diameter="32">
         </md-progress-circular>
 
         <!--<md-menu-bar id="user-menu">
@@ -109,7 +118,7 @@
             </md-menu>
         </md-menu-bar>-->
 
-        
+
         <!--<div class="toolbar-separator"></div>
         <md-menu id="language-menu" md-offset="0 72" md-position-mode="target-right target">
             <md-button class="language-button" ng-click="$mdOpenMenu()"
@@ -132,12 +141,12 @@
             </md-menu-content>
         </md-menu>-->
 
-        <div class="toolbar-separator"></div>
+        <!--<div class="toolbar-separator"></div>-->
 
-        <md-button id="quick-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('quick-panel')"
-                   aria-label="Toggle quick panel" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
-            <md-icon md-font-icon="icon-menu" class="icon" style="height:40px"></md-icon>
+        <md-button id="quick-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('quick-panel')" aria-label="Toggle quick panel"
+            translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
+            <md-icon md-font-icon="icon-message" class="icon" style="height:40px; color: white"></md-icon>
         </md-button>
-        
+
     </div>
 </div>

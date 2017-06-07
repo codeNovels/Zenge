@@ -1,10 +1,13 @@
-<div layout="row" layout-align="start center" style="background-color: rgb(45,50,62);opacity: 0.94;">
+<div layout="row" layout-align="start center" style="background-color: rgb(3,155,229);opacity: 0.94;">
     <div layout="row" layout-align="start center" flex>
+        <!--<a ui-sref="app.games">
+            <div class="logo" layout="row" layout-align="start center">
+                <span><img style="height:1.5em" src="assets/images/logos/zenge.png"></img></span>
+            </div>
+        </a>-->
 
-        
-        <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')"
-                   hide-gt-sm aria-label="Toggle navigation" translate
-                   translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
+        <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')" hide-gt-sm aria-label="Toggle navigation"
+            translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
             <md-icon md-font-icon="icon-menu" class="icon" style="color:#FFF"></md-icon>
         </md-button>
 
@@ -14,7 +17,7 @@
     </div>
 
     <div layout="row" layout-align="start center">
-        <md-progress-circular id="toolbar-progress" ng-disabled="!$root.loadingProgress"  class="md-accent" md-diameter="32" style="color: #FFF"></md-progress-circular>
+        <md-progress-circular id="toolbar-progress" ng-disabled="!$root.loadingProgress" class="md-accent" md-diameter="32" style="color: #FFF"></md-progress-circular>
 
         <!--<md-menu-bar id="user-menu">
             <md-menu md-position-mode="left bottom">
@@ -105,10 +108,10 @@
             </md-menu-content>
         </md-menu>-->
 
-       
 
-        <md-button id="quick-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('quick-panel')"
-                   aria-label="Toggle quick panel" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
+
+        <md-button id="quick-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('quick-panel')" aria-label="Toggle quick panel"
+            translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
             <md-icon md-font-icon="icon-message" class="icon" style="color: #FFF"></md-icon>
         </md-button>
     </div>

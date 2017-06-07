@@ -56,7 +56,8 @@ h6, .h6 {
 a {
     text-decoration: none !important;
     &:hover, &:active {
-        color: rgb(3, 155, 229) !important;
+        //color: rgb(3, 155, 229) !important;
+        color: rgba(42, 116, 252, 1) !important;
         cursor: pointer; 
         cursor: hand;
         //text-decoration: underline;

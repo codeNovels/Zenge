@@ -1,7 +1,10 @@
 #toolbar {
-    height: $toolbarHeight;
-    min-height: $toolbarHeight;
-    max-height: $toolbarHeight;
+    // height: $toolbarHeight;
+    // min-height: $toolbarHeight;
+    // max-height: $toolbarHeight;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
     z-index: 55 !important;
 
     #navigation-toggle {
@@ -68,9 +71,12 @@
     }
 
     #quick-panel-toggle {
-        width: $toolbarHeight;
-        height: $toolbarHeight;
+        //width: $toolbarHeight;
+        //height: $toolbarHeight;
+        width: 50px;
+        height: 50px;
         margin: 0;
+        margin-top: 7px;
         border-radius: 0;
     }
 

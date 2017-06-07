@@ -73,6 +73,7 @@
         vm.setUserStatus = setUserStatus;
         vm.toggleHorizontalMobileMenu = toggleHorizontalMobileMenu;
         vm.toggleMsNavigationFolded = toggleMsNavigationFolded;
+        vm.toggleSideNavByWindowSize = toggleSideNavByWindowSize;
         vm.search = search;
         vm.searchResultClick = searchResultClick;
 
@@ -97,6 +98,15 @@
          *
          * @param sidenavId
          */
+
+         function toggleSideNavByWindowSize (){
+            if($scope.windowSize > 1000){
+                vm.toggleMsNavigationFolded()
+            } else {
+                vm.toggleSidenav('navigation')
+            }
+         }
+
         function toggleSidenav(sidenavId) {
             $mdSidenav(sidenavId).toggle();
         }

@@ -73,7 +73,8 @@ body {
 
         #content {
             position: absolute;
-            top: $toolbarHeight;
+           // top: $toolbarHeight;
+            top: 50px;
             right: 0;
             bottom: 0;
             left: 0;
