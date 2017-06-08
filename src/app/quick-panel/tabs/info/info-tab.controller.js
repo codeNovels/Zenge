@@ -9,14 +9,17 @@
     function InfoTabController(msApi, $timeout, $state, $rootScope, $sce, $scope, userService) {
         var vm = this;
 
-        $scope.user = $rootScope.channel;
+        $scope.user = 'zengetv'
+        if ($rootScope.channel){
+            $scope.user = $rootScope.channel;
+        }
+
         if ($scope.user) {
             userService.getUser($state.params.channel)
                 .then(function (data) {
                     vm.channel = data.user
                 });
         }
-
 
         $scope.$watch('$root.channel', function (newValue, oldValue) {
             if (newValue !== oldValue) {

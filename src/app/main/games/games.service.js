@@ -18,7 +18,7 @@
 
         // Services
         function getList(ticketId) {
-            var url = 'https://api.twitch.tv/kraken/games/top?limit=100&on_site=1&client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
+            var url = 'https://api.twitch.tv/kraken/games/top?limit=50&on_site=1&client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
             return $http.get(url)
                 .then(getListComplete)
                 .catch(getListFailed);

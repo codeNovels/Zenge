@@ -3,7 +3,8 @@
         <div class="md-list-item-text">
             <div class="ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
                 <div>
-                    <img ng-src="{{vm.channel.channel.profile_banner}}" />
+                    <img ng-show="user !== 'zengetv'" ng-src="{{vm.channel.channel.profile_banner}}" />
+                    <img ng-show="user === 'zengetv'" src="assets/images/logos/2.png" />
                 </div>
             </div>
         </div>
@@ -12,7 +13,7 @@
 
 <md-divider></md-divider>
 
-<md-list class="date">
+<md-list class="date" ng-show="user !== 'zengetv'">
     <md-list-item class="md-2-line">
         <div class="md-list-item-text">
             <span style="color: red">
@@ -33,8 +34,7 @@
         </div>
     </md-list-item>
 </md-list>
-
-<md-divider></md-divider>
+<md-divider ng-show="user !== 'zengetv'"></md-divider>
 
 
 

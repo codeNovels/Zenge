@@ -11,8 +11,11 @@
     {
         var vm = this;
 
-        
-        $scope.user = $rootScope.channel;
+        $scope.user = 'zengetv'
+        if ($rootScope.channel){
+            $scope.user = $rootScope.channel;
+        }
+
         $scope.$watch('$root.channel', function (newValue, oldValue) {
             if (newValue !== oldValue){
                 $scope.user = $rootScope.channel
