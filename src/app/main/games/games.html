@@ -1,6 +1,19 @@
+<style>
+    .flex-gt-xs-50 {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 50% !important;
+        flex: 1 1 50% !important;
+        /* max-width: 50%; */
+        /* max-height: 100%; */
+        box-sizing: border-box;
+    }
+</style>
+
+
+
+
 <div class="widget-group layout-wrap layout-row" layout="row" layout-wrap>
-    <ms-widget ng-repeat="game in vm.games" layout="row" flex="50"
-        class="ms-widget ng-isolate-scope layout-row flex-gt-xs-50 flex-gt-md-15 flex-gt-lg-10 flex-gt-xl-5" 
+    <ms-widget ng-repeat="game in vm.games" layout="row" flex="50" class="ms-widget ng-isolate-scope layout-row flex-gt-xs-50 flex-gt-md-15 flex-gt-lg-10 flex-gt-xl-5"
         ng-click="vm.goToGame(game.game)">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
@@ -16,8 +29,8 @@
                     <a style="color:rgba(0,0,0,0.54);">{{game.game.name}}</a>
                     </span>
             </div>
-            <div class="p-5 grey-50-bg ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
-                layout="row" flex="100" layout-align="start center" style="padding-top: 0px;padding-bottom:2px" ng-show="vm.windowSize < 500? false: true">
+            <div class="p-5 grey-50-bg ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100" layout="row"
+                flex="100" layout-align="start center" style="padding-top: 0px;padding-bottom:2px" ng-show="vm.windowSize < 500? false: true">
                 <span class="secondary-text text-truncate ng-binding" style="font-size:10px">{{game.viewers | number}} viewers</span>
                 </span>
             </div>
