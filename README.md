@@ -1,5 +1,5 @@
-![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/games.png) 
-
-![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/channels.png) 
-
-![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/user.png) 
+![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/1.png) 
+![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/2.png) 
+![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/3.png) 
+![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/4.png) 
+![Picture](https://github.com/codeNovels/Zenge/blob/master/src/assets/images/screenshots/5.png) 
