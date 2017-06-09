@@ -1,16 +1,37 @@
+<style>
+    #container {
+        position: relative;
+    }
+
+    #example {
+        position: absolute;
+        padding: 5px;
+        bottom: 0%;
+    }
+</style>
+
 <div class="widget-group layout-wrap layout-row flex-100" layout="row" flex="100" layout-wrap="">
-    <ms-widget ng-repeat="channel in vm.channels" flippable="true" layout="column" flex="100" 
-        flex-gt-xs="25" flex-gt-md="20" class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100" 
-        ng-click="vm.goToUser(channel)">
+    <ms-widget ng-repeat="channel in vm.channels" flippable="true" layout="column" flex="100" flex-gt-xs="25" flex-gt-md="20"
+        class="ms-widget ng-isolate-scope layout-column flex-gt-xs-25 flex-gt-md-20 flex-100" ng-click="vm.goToUser(channel)">
         <ms-widget-front class="white-bg ms-widget-front ng-scope">
             <a href="">
                 <div class="ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
-                    <div>
+                    <div id="container">
                         <img ng-src="{{channel.preview.large}}" />
+                        <div id="example" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(255,0,0,0)); max-width: 60%">
+                            <span style="color: #FFF; font-weight: bold" class="secondary-text text-truncate">{{channel.channel.name}}</span>
+                            <span style="color: #FFF; font-size:10px" class="secondary-text text-truncate">{{channel.channel.status}}</span>
+                            <div style="color: #2a74fc; font-size:10px" class="secondary-text text-truncate">{{channel.viewers | number}} viewers</div>
+                        </div>
                     </div>
+
                 </div>
             </a>
-            <div ng-if="vm.windowSize < 360? false: true" class="p-5 grey-50-bg border-top ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
+
+
+
+
+            <!--<div ng-if="vm.windowSize < 360? false: true" class="p-5 grey-50-bg border-top ng-scope layout-align-start-center layout-row flex-gt-xs-50 flex-100" flex-gt-xs="100"
                 layout="row" flex="100" layout-align="start center" style="padding-bottom: 0px;">
                 <span class="layout-align-start text-truncate ng-binding"><a style="color:rgba(0,0,0,0.54);">{{channel.channel.status}}<a></span>
             </div>
@@ -20,7 +41,10 @@
                     {{channel.viewers | number}} viewers on 
                     <a ng-style="vm.windowSize < 360? {'color': 'rgb(33,150,243)'}: {'color': 'rgba(0,0,0,0.54)'}"style="font-size:10px">&nbsp; {{channel.channel.name}} </a>
                 </span>
-            </div>
+            </div>-->
+
+
+
         </ms-widget-front>
     </ms-widget>
 </div>
