@@ -32,6 +32,9 @@
        function getList() {
             channelsService.getList(type, name)
                 .then(function(data) {
+                    if (!data){
+                        return
+                    }
                     vm.channels = data.streams.streams                  
                 });
         }

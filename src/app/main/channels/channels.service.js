@@ -19,7 +19,7 @@
         // Services
         function getList(type, id) {
             var query = '&'+type+'='+id
-            var url = 'https://api.twitch.tv/kraken/streams?limit=20&offset=0'+query+'&broadcaster_language=&on_site=1&client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
+            var url = 'https://api.twitch.tv/kraken/streams?limit=40&offset=0'+query+'&broadcaster_language=&on_site=1&client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
             return $http.get(url)
                 .then(getListComplete)
                 .catch(getListFailed);

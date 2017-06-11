@@ -16,6 +16,7 @@
         vm.helloText = Data.data.helloText;
         vm.goToGame = goToGame;
 
+
         getList();
 
         // Methods
@@ -26,6 +27,9 @@
         function getList() {
             gamesService.getList()
                 .then(function (data) {
+                    if (!data){
+                        return
+                    }
                     vm.games = data.games.top;
                 });
         }
