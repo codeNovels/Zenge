@@ -8,7 +8,7 @@
         .directive('msSearchBar', msSearchBarDirective);
 
     /** @ngInject */
-    function MsSearchBarController($scope, $element, $timeout)
+    function MsSearchBarController($scope, $element, $timeout, $state)
     {
         var vm = this;
 
@@ -305,7 +305,8 @@
         {
             if ( vm.onResultClick )
             {
-                vm.onResultClick({item: item});
+                //vm.onResultClick({item: item});
+                $state.go('app.channels', { type: 'game', name: item.game.name });
             }
 
             // Collapse the search bar

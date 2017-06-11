@@ -8,9 +8,13 @@
     z-index: 55 !important;
 
     #navigation-toggle {
-        width: $toolbarHeight;
-        min-width: $toolbarHeight;
-        height: $toolbarHeight;
+        // width: $toolbarHeight;
+        // min-width: $toolbarHeight;
+        // height: $toolbarHeight;
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+
         margin: 0;
         // border-right: 1px solid rgba(0, 0, 0, 0.12);
         border-radius: 0;
@@ -81,9 +85,11 @@
     }
 
     .toolbar-separator {
-        height: $toolbarHeight;
+        //height: $toolbarHeight;
+        height: 50px;
         width: 1px;
-        background: rgba(0, 0, 0, 0.12);
+        //background: rgba(0, 0, 0, 0.12);
+        background: white;
     }
 }
 

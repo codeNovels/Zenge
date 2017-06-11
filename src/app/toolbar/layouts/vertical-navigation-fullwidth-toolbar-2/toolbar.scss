@@ -3,7 +3,9 @@
     #toolbar {
 
         .logo {
-            width: $navigationWidth;
+            //width: $navigationWidth;
+            width: 190px;
+            max-width: 190px;
             padding: 0 16px;
 
             .logo-image {

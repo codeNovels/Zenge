@@ -2,7 +2,7 @@
 /*  ms-search-bar
 /*----------------------------------------------------------------*/
 .ms-search-bar {
-    height: $toolbarHeight;
+    height: 50px;
     font-size: 13px;
 
     .ms-search-bar-expander,
@@ -11,14 +11,14 @@
         padding: 0 20px;
         margin: 0;
         width: 64px !important;
-        height: $toolbarHeight !important;
-        line-height: $toolbarHeight !important;
+        height: 50px !important;
+        line-height: 50px !important;
     }
 
     .ms-search-bar-loader {
         width: 64px !important;
-        height: $toolbarHeight !important;
-        line-height: $toolbarHeight !important;
+        height: 50px !important;
+        line-height: 50px !important;
     }
 
     .ms-search-bar-collapser {
@@ -27,14 +27,14 @@
 
     #ms-search-bar-input {
         display: none;
-        min-height: $toolbarHeight;
+        min-height: 50px;
         background-color: transparent;
         font-size: 16px;
     }
 
     .ms-search-bar-results {
         position: absolute;
-        top: $toolbarHeight;
+        top: 50px;
         left: 0;
         right: 0;
         overflow-x: hidden;
