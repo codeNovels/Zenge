@@ -187,16 +187,18 @@
                 flatNavigation = msNavigationService.getFlatNavigation(),
                 deferred = $q.defer();
 
-            gamesService.getList()
+            gamesService.searchDirectory(query)
                 .then(function (data) {
-                    vm.games = data.games.top;
+
+                    vm.games = data.results;
+
                     for (var x = 0; x < vm.games.length; x++) {
                         navigation.push(vm.games[x]);
                     }
 
                     if (query) {
                         navigation = navigation.filter(function (item) {
-                            if (angular.lowercase(item.game.name).search(angular.lowercase(query)) > -1) {
+                            if (angular.lowercase(item.name).search(angular.lowercase(query)) > -1) {
                                 return true;
                             }
                         });

@@ -306,7 +306,7 @@
             if ( vm.onResultClick )
             {
                 //vm.onResultClick({item: item});
-                $state.go('app.channels', { type: 'game', name: item.game.name });
+                $state.go('app.channels', { type: 'game', name: item.name });
             }
 
             // Collapse the search bar

@@ -11,6 +11,7 @@
     function gamesService($http) {
         var service = {
             getList: getList
+            ,searchDirectory: searchDirectory
         };
 
         return service;
@@ -30,6 +31,23 @@
             }
 
             function getListFailed(error) {
+                return false;
+            }
+        }
+
+        function searchDirectory(query) {
+            var url = 'https://api.twitch.tv/kraken/search/games?query='+query+'&type=suggest&client_id=8t7uaf2uwb21c5afou4bdte9lnvzwe';
+            return $http.get(url)
+                .then(searchDirectoryComplete)
+                .catch(searchDirectoryFailed);
+
+            function searchDirectoryComplete(response) {
+                return {
+                    results : response.data.games
+                };
+            }
+
+            function searchDirectoryFailed(error) {
                 return false;
             }
         }
